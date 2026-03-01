@@ -18,6 +18,29 @@ load_dotenv()
 
 BASE_URL = "https://www.last.fm"
 
+US_STATES = {
+    "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+    "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+    "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+    "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+    "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY",
+    "DC",
+}
+
+
+def normalize_city(city: str) -> str:
+    """Remove US state abbreviations and zip codes from city names.
+
+    Examples: 'Seattle, WA' -> 'Seattle', 'Las Vegas, NV 89101' -> 'Las Vegas'
+    """
+    # Strip trailing zip code (5 or 9 digit)
+    cleaned = re.sub(r"\s+\d{5}(-\d{4})?\s*$", "", city)
+    # Strip trailing US state abbreviation (with optional comma/space before)
+    match = re.match(r"^(.+?)[,\s]+([A-Z]{2})\s*$", cleaned)
+    if match and match.group(2) in US_STATES:
+        cleaned = match.group(1).strip()
+    return cleaned
+
 session = requests.Session()
 session.headers.update({
     "Accept-Language": "en-US,en;q=0.5",
@@ -136,6 +159,7 @@ def extract_events(soup: BeautifulSoup) -> list[dict]:
         venue_city = row.select_one(".events-list-item-venue--city")
         if venue_city:
             event["city"] = venue_city.get_text(strip=True)
+            event["city_clean"] = normalize_city(event["city"])
 
         venue_country = row.select_one(".events-list-item-venue--country")
         if venue_country:

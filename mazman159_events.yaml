@@ -12,6 +12,7 @@
   city: Seattle
   country: United States
   poster: images/4989643.png
+  city_clean: Seattle
 - date: '2026-03-16'
   title: Black Label Society
   url: https://www.last.fm/event/4978462+Black+Label+Society
@@ -26,6 +27,7 @@
   city: Seattle
   country: United States
   poster: images/4978462.png
+  city_clean: Seattle
 - date: '2026-03-31'
   title: Lamb of God
   url: https://www.last.fm/event/4987248+Lamb+of+God
@@ -42,6 +44,7 @@
   city: Seattle, WA
   country: United States
   poster: images/4987248.jpg
+  city_clean: Seattle
 - date: '2026-04-02'
   title: Scandinavian Heavy Arts Tour
   url: https://www.last.fm/event/4997765+Scandinavian+Heavy+Arts+Tour
@@ -56,6 +59,7 @@
   city: Seattle, WA
   country: United States
   poster: images/4997765.jpg
+  city_clean: Seattle
 - date: '2026-04-04'
   title: 'Lacuna Coil: Sleepless Empire Tour'
   url: https://www.last.fm/event/4989876+Lacuna+Coil:+Sleepless+Empire+Tour
@@ -70,6 +74,7 @@
   city: Seattle, WA
   country: United States
   poster: images/4989876.jpg
+  city_clean: Seattle
 - date: '2026-04-05'
   title: 'CONFLICT : LEATHER TOUR 2026'
   url: https://www.last.fm/event/4966761+CONFLICT+:+LEATHER+TOUR+2026
@@ -84,6 +89,7 @@
   city: Seattle
   country: United States
   poster: images/4966761.jpg
+  city_clean: Seattle
 - date: '2026-04-17'
   title: 'Bloodywood: System Of A Brown Tour 2026'
   url: https://www.last.fm/event/4987855+Bloodywood:+System+Of+A+Brown+Tour+2026
@@ -100,6 +106,7 @@
   city: Seattle, WA
   country: United States
   poster: images/4987855.png
+  city_clean: Seattle
 - date: '2026-04-24'
   title: Electric Callboy - Tanzneid World Tour - North America
   url: https://www.last.fm/event/4973558+Electric+Callboy+-+Tanzneid+World+Tour+-+North+America
@@ -114,6 +121,7 @@
   city: Seattle, WA
   country: United States
   poster: images/4973558.jpg
+  city_clean: Seattle
 - date: '2026-04-28'
   title: 'Helloween: 40 Years Anniversary Tour'
   url: https://www.last.fm/event/4976253+Helloween:+40+Years+Anniversary+Tour
@@ -126,6 +134,7 @@
   city: Seattle, WA
   country: United States
   poster: images/4976253.png
+  city_clean: Seattle
 - date: '2026-05-09'
   title: 'The midnight: time machines'
   url: https://www.last.fm/event/4967803+The+midnight:+time+machines
@@ -136,6 +145,7 @@
   city: Seattle
   country: United States
   poster: images/4967803.jpg
+  city_clean: Seattle
 - date: '2026-05-29'
   title: Blue Man Group On Tour
   url: https://www.last.fm/event/4987859+Blue+Man+Group+On+Tour
@@ -146,6 +156,7 @@
   city: Seattle
   country: United States
   poster: images/4987859.png
+  city_clean: Seattle
 - date: '2026-09-25'
   title: ‘Run For Your Lives’ World Tour 2026
   url: https://www.last.fm/event/4972429+%E2%80%98Run+For+Your+Lives%E2%80%99+World+Tour+2026
@@ -160,6 +171,7 @@
   city: Los Angeles
   country: United States
   poster: images/4972429.jpg
+  city_clean: Los Angeles
 - date: '2026-02-04'
   title: Strands of Harmony World tour
   url: https://www.last.fm/event/4966178+Strands+of+Harmony+World+tour
@@ -170,6 +182,7 @@
   city: Seattle
   country: United States
   poster: images/4966178.jpg
+  city_clean: Seattle
 - date: '2026-02-15'
   title: Skeletour World Tour 2026
   url: https://www.last.fm/event/4965312+Skeletour+World+Tour+2026
@@ -180,6 +193,7 @@
   city: Seattle
   country: United States
   poster: images/4965312.png
+  city_clean: Seattle
 - date: '2026-02-20'
   title: Orbit Culture - Death Above Life North American Tour
   url: https://www.last.fm/event/4978463+Orbit+Culture+-+Death+Above+Life+North+American+Tour
@@ -194,6 +208,7 @@
   city: Seattle, WA
   country: United States
   poster: images/4978463.png
+  city_clean: Seattle
 - date: '2026-02-24'
   title: Opeth
   url: https://www.last.fm/event/4963749+Opeth+at+The+Paramount+Theatre+on+24+February+2026
@@ -202,6 +217,7 @@
   city: Seattle
   country: United States
   poster: images/4963749.jpg
+  city_clean: Seattle
 - date: '2025-02-26'
   title: Third World Trilogy Tour
   url: https://www.last.fm/event/4884802+Third+World+Trilogy+Tour
@@ -220,6 +236,7 @@
   city: Seattle, WA
   country: United States
   poster: images/4884802.png
+  city_clean: Seattle
 - date: '2025-03-11'
   title: 'Alcest: Les Chants de l’Aurore Tour'
   url: https://www.last.fm/event/4857393+Alcest:+Les+Chants+de+l%E2%80%99Aurore+Tour
@@ -233,6 +250,7 @@
   venue: Neptune Theatre
   city: Seattle, WA
   country: United States
+  city_clean: Seattle
 - date: '2025-04-01'
   title: The poisoned ascendency tour
   url: https://www.last.fm/event/4856842+The+poisoned+ascendency+tour
@@ -249,6 +267,7 @@
   city: Seattle
   country: United States
   poster: images/4856842.jpg
+  city_clean: Seattle
 - date: '2025-04-02'
   title: In Flames with special guest Unearth
   url: https://www.last.fm/event/4896664+In+Flames+with+special+guest+Unearth
@@ -260,6 +279,7 @@
   venue: Neptune Theatre
   city: Seattle, WA
   country: United States
+  city_clean: Seattle
 - date: '2025-04-07'
   title: The Birthday Massacre
   url: https://www.last.fm/event/4903299+The+Birthday+Massacre+at+El+Corazon+on+07+April+2025
@@ -271,6 +291,7 @@
   venue: El Corazon
   city: Seattle, WA
   country: United States
+  city_clean: Seattle
 - date: '2025-04-12'
   title: Sick New World 2025
   url: https://www.last.fm/festival/4857113+Sick+New+World+2025
@@ -297,6 +318,7 @@
   city: Las Vegas, NV 89101
   country: United States
   poster: images/4857113.jpg
+  city_clean: Las Vegas
 - date: '2025-04-16'
   title: While She Sleeps
   url: https://www.last.fm/event/4883111+While+She+Sleeps+at+Soundwell+on+16+April+2025
@@ -309,6 +331,7 @@
   city: Salt Lake City
   country: United States
   poster: images/4883111.jpg
+  city_clean: Salt Lake City
 - date: '2025-04-19'
   title: Arch Enemy
   url: https://www.last.fm/event/4885223+Arch+Enemy+at+Showbox+at+The+Market+on+19+April+2025
@@ -322,6 +345,7 @@
   venue: Showbox at The Market
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2025-04-25'
   title: Mogwai
   url: https://www.last.fm/event/4856470+Mogwai+at+The+Showbox+on+25+April+2025
@@ -331,6 +355,7 @@
   venue: The Showbox
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2025-05-05'
   title: 'Disturbed: The Sickness 25th Anniversary Tour'
   url: https://www.last.fm/event/4865071+Disturbed:+The+Sickness+25th+Anniversary+Tour
@@ -344,6 +369,7 @@
   venue: Climate Pledge Arena
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2025-05-08'
   title: Northwest Terror Fest 2025
   url: https://www.last.fm/festival/4862395+Northwest+Terror+Fest+2025
@@ -369,6 +395,7 @@
   venue: Neumos
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2025-05-11'
   title: Lacuna Coil
   url: https://www.last.fm/event/4896663+Lacuna+Coil
@@ -382,6 +409,7 @@
   venue: McMenamins Elks Temple
   city: Tacoma
   country: United States
+  city_clean: Tacoma
 - date: '2025-05-12'
   title: 'Thornhill: Bodies North America Tour'
   url: https://www.last.fm/event/4895825+Thornhill:+Bodies+North+America+Tour
@@ -398,6 +426,7 @@
   city: Seattle, WA
   country: United States
   poster: images/4895825.jpg
+  city_clean: Seattle
 - date: '2025-05-18'
   title: Deliciously Live
   url: https://www.last.fm/event/4906374+Deliciously+Live
@@ -411,6 +440,7 @@
   venue: Temple Theatre
   city: Tacoma, WA
   country: United States
+  city_clean: Tacoma
 - date: '2025-06-19'
   title: Panchiko
   url: https://www.last.fm/event/4883110+Panchiko+at+Showbox+SoDo+on+19+June+2025
@@ -420,6 +450,7 @@
   venue: Showbox SoDo
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2025-06-22'
   title: 'Pierce the Veil: I can''t hear you World Tour'
   url: https://www.last.fm/event/4880741+Pierce+the+Veil:+I+can%27t+hear+you+World+Tour
@@ -433,6 +464,7 @@
   venue: WaMu Theater
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2025-07-10'
   title: Ado WORLD TOUR 2025 “Hibana”
   url: https://www.last.fm/event/4878625+Ado+WORLD+TOUR+2025+%E2%80%9CHibana%E2%80%9D
@@ -442,6 +474,7 @@
   venue: Tacoma Dome
   city: Tacoma, WA
   country: United States
+  city_clean: Tacoma
 - date: '2025-07-15'
   title: BABYMETAL
   url: https://www.last.fm/event/4912261+BABYMETAL+at+ShoWare+Center+on+15+July+2025
@@ -453,6 +486,7 @@
   venue: ShoWare Center
   city: Kent WA
   country: United States
+  city_clean: Kent
 - date: '2025-07-21'
   title: 'Volbeat: Greatest of All Tours 2025'
   url: https://www.last.fm/event/4908969+Volbeat:+Greatest+of+All+Tours+2025
@@ -466,6 +500,7 @@
   venue: White River Amphitheatre
   city: ''
   country: United States
+  city_clean: ''
 - date: '2025-08-18'
   title: Hell of a Summer Tour
   url: https://www.last.fm/event/4936606+Hell+of+a+Summer+Tour
@@ -481,6 +516,7 @@
   venue: The Paramount Theatre
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2025-08-22'
   title: Pantera
   url: https://www.last.fm/event/4904238+Pantera
@@ -496,6 +532,7 @@
   venue: White River Amphitheatre
   city: ''
   country: United States
+  city_clean: ''
 - date: '2025-09-03'
   title: The Offspring
   url: https://www.last.fm/event/4928391+The+Offspring+at+White+River+Amphitheatre+on+03+September+2025
@@ -507,6 +544,7 @@
   venue: White River Amphitheatre
   city: ''
   country: United States
+  city_clean: ''
 - date: '2025-09-24'
   title: 'Linkin Park: From Zero World Tour 2025'
   url: https://www.last.fm/event/4875453+Linkin+Park:+From+Zero+World+Tour+2025
@@ -519,6 +557,7 @@
   city: Seattle
   country: United States
   poster: images/4875453.jpg
+  city_clean: Seattle
 - date: '2025-09-30'
   title: 'Bring Me The Horizon: USA Ascension Program Part 01'
   url: https://www.last.fm/event/4907634+Bring+Me+The+Horizon:+USA+Ascension+Program+Part+01
@@ -535,6 +574,7 @@
   city: West Valley City, UT
   country: United States
   poster: images/4907634.png
+  city_clean: West Valley City
 - date: '2025-10-01'
   title: Powerwolf
   url: https://www.last.fm/event/4917262+Powerwolf+at+Roseland+Theater+on+01+October+2025
@@ -545,6 +585,7 @@
   city: Portland
   country: United States
   poster: images/4917262.jpg
+  city_clean: Portland
 - date: '2025-10-07'
   title: 'Sleep Token: Even in Arcadia'
   url: https://www.last.fm/event/4909263+Sleep+Token:+Even+in+Arcadia
@@ -557,6 +598,7 @@
   city: Tacoma, WA
   country: United States
   poster: images/4909263.jpg
+  city_clean: Tacoma
 - date: '2025-10-14'
   title: EVERYONE’S TALKING! TOUR
   url: https://www.last.fm/event/4966686+EVERYONE%E2%80%99S+TALKING!+TOUR
@@ -572,6 +614,7 @@
   venue: WaMu Theater
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2025-11-10'
   title: Avatar - In the airwaves USA'25
   url: https://www.last.fm/event/4931457+Avatar+-+In+the+airwaves+USA%2725
@@ -586,6 +629,7 @@
   city: Seattle
   country: United States
   poster: images/4931457.jpg
+  city_clean: Seattle
 - date: '2025-11-12'
   title: Set It Off
   url: https://www.last.fm/event/4965750+Set+It+Off
@@ -601,6 +645,7 @@
   venue: Showbox SoDo
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2025-11-28'
   title: Omnium Gatherum - May The Bridges We Burn Light The Way - North American
     Tour 2025
@@ -616,6 +661,7 @@
   city: Seattle, WA
   country: United States
   poster: images/4978465.jpg
+  city_clean: Seattle
 - date: '2024-01-22'
   title: Machine Head
   url: https://www.last.fm/event/4774309+Machine+Head+at+Showbox+at+The+Market+on+22+January+2024
@@ -629,6 +675,7 @@
   venue: Showbox at The Market
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2024-02-17'
   title: 'The Devil Wears Prada & Fit for a King: METALCORE DROPOUTS'
   url: https://www.last.fm/event/4799075+The+Devil+Wears+Prada+&+Fit+for+a+King:+METALCORE+DROPOUTS
@@ -644,6 +691,7 @@
   venue: Showbox SoDo
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2024-03-31'
   title: Queensryche & Armored Saint
   url: https://www.last.fm/event/4799212+Queensryche+&+Armored+Saint
@@ -655,6 +703,7 @@
   venue: Neptune Theatre
   city: Seattle, WA
   country: United States
+  city_clean: Seattle
 - date: '2024-04-21'
   title: 'Panchiko: NORTH AMERICA TOUR 2024'
   url: https://www.last.fm/event/4778944+Panchiko:+NORTH+AMERICA+TOUR+2024
@@ -668,6 +717,7 @@
   venue: The Showbox
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2024-04-26'
   title: Bring Me the Horizon
   url: https://www.last.fm/event/4802169+Bring+Me+the+Horizon+at+Fontainebleu+on+26+April+2024
@@ -677,6 +727,7 @@
   venue: Fontainebleu
   city: Las Vegas
   country: United States
+  city_clean: Las Vegas
 - date: '2024-04-27'
   title: Sick New World 2024
   url: https://www.last.fm/event/4764218+Sick+New+World+2024
@@ -703,6 +754,7 @@
   city: Las Vegas, NV 89101
   country: United States
   poster: images/4764218.jpg
+  city_clean: Las Vegas
 - date: '2024-05-01'
   title: Blind Guardian
   url: https://www.last.fm/event/4782166+Blind+Guardian+at+Showbox+at+The+Market+on+01+May+2024
@@ -713,6 +765,7 @@
   city: Seattle
   country: United States
   poster: images/4782166.png
+  city_clean: Seattle
 - date: '2024-05-20'
   title: Circus of Doom Over North America
   url: https://www.last.fm/event/4799209+Circus+of+Doom+Over+North+America
@@ -724,6 +777,7 @@
   venue: Neptune Theatre
   city: Seattle, WA
   country: United States
+  city_clean: Seattle
 - date: '2024-06-06'
   title: Soen
   url: https://www.last.fm/event/4794795+Soen
@@ -736,6 +790,7 @@
   city: Seattle, Washington
   country: United States
   poster: images/4794795.jpg
+  city_clean: Seattle, Washington
 - date: '2024-07-26'
   title: Thirty Seconds To Mars - Seasons World Tour
   url: https://www.last.fm/event/4822847+Thirty+Seconds+To+Mars+-+Seasons+World+Tour
@@ -751,6 +806,7 @@
   venue: White River Amphitheatre
   city: ''
   country: United States
+  city_clean: ''
 - date: '2024-08-12'
   title: Destroy All Enemies
   url: https://www.last.fm/event/4818438+Destroy+All+Enemies
@@ -764,6 +820,7 @@
   venue: White River Amphitheater
   city: Auburn, WA
   country: United States
+  city_clean: Auburn
 - date: '2024-08-18'
   title: Everything Or Nothing At All Tour
   url: https://www.last.fm/event/4764956+Everything+Or+Nothing+At+All+Tour
@@ -778,6 +835,7 @@
   city: Seattle
   country: United States
   poster: images/4764956.jpg
+  city_clean: Seattle
 - date: '2024-08-20'
   title: loserville 2024
   url: https://www.last.fm/event/4784790+loserville+2024
@@ -797,6 +855,7 @@
   venue: White River Amphitheater
   city: Auburn, WA
   country: United States
+  city_clean: Auburn
 - date: '2024-08-22'
   title: 'Falling In Reverse - The Popular MonsTOUR II: World Domination'
   url: https://www.last.fm/event/4822850+Falling+In+Reverse+-+The+Popular+MonsTOUR+II:+World+Domination
@@ -812,6 +871,7 @@
   venue: White River Amphitheatre
   city: ''
   country: United States
+  city_clean: ''
 - date: '2024-08-31'
   title: Kiss Of Death Part 2
   url: https://www.last.fm/event/4850626+Kiss+Of+Death+Part+2
@@ -827,6 +887,7 @@
   venue: Moda Center
   city: Portland, OR
   country: United States
+  city_clean: Portland
 - date: '2024-09-07'
   title: Slipknot
   url: https://www.last.fm/event/4820920+Slipknot+at+White+River+Amphitheatre+on+07+September+2024
@@ -839,6 +900,7 @@
   city: ''
   country: United States
   poster: images/4820920.jpg
+  city_clean: ''
 - date: '2024-10-10'
   title: Korn
   url: https://www.last.fm/event/4811068+Korn+at+Tacoma+Dome+on+10+October+2024
@@ -850,6 +912,7 @@
   venue: Tacoma Dome
   city: Tacoma, WA
   country: United States
+  city_clean: Tacoma
 - date: '2024-10-15'
   title: Tony Ann - Late Show
   url: https://www.last.fm/event/4850627+Tony+Ann+-+Late+Show
@@ -859,6 +922,7 @@
   venue: Hollywood Theatre
   city: Vancouver
   country: Canada
+  city_clean: Vancouver
 - date: '2024-10-16'
   title: Sleeping with Sirens
   url: https://www.last.fm/event/4822861+Sleeping+with+Sirens
@@ -870,6 +934,7 @@
   venue: Showbox SoDo
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2024-11-26'
   title: 'AURORA: What Happened To The Earth?'
   url: https://www.last.fm/event/4824993+AURORA:+What+Happened+To+The+Earth%3F
@@ -882,6 +947,7 @@
   city: Seattle, WA
   country: United States
   poster: images/4824993.jpg
+  city_clean: Seattle
 - date: '2024-12-09'
   title: Zeal & Ardor
   url: https://www.last.fm/event/4842176+Zeal+&+Ardor+at+The+Showbox+on+09+December+2024
@@ -893,6 +959,7 @@
   venue: The Showbox
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2024-12-11'
   title: The Pineapple Thief With Special Guests
   url: https://www.last.fm/event/4826303+The+Pineapple+Thief+With+Special+Guests
@@ -902,6 +969,7 @@
   venue: Neptune Theatre
   city: Seattle, WA
   country: United States
+  city_clean: Seattle
 - date: '2023-07-22'
   title: Dream Theater
   url: https://www.last.fm/event/4721506+Dream+Theater+at+Marymoor+park+on+22+July+2023
@@ -913,6 +981,7 @@
   venue: Marymoor park
   city: Redmond
   country: United States
+  city_clean: Redmond
 - date: '2023-09-26'
   title: Beast in black
   url: https://www.last.fm/event/4761271+Beast+in+black
@@ -924,6 +993,7 @@
   venue: Substation
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2023-10-14'
   title: Guns N' Roses
   url: https://www.last.fm/event/4728162+Guns+N%27+Roses+at+Climate+Pledge+Arena+on+14+October+2023
@@ -933,6 +1003,7 @@
   venue: Climate Pledge Arena
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2022-09-15'
   title: Korn Summer Tour 2022
   url: https://www.last.fm/event/4635402+Korn+Summer+Tour+2022
@@ -949,6 +1020,7 @@
   city: Auburn, WA
   country: United States
   poster: images/4635402.jpg
+  city_clean: Auburn
 - date: '2022-09-28'
   title: 'Joe Satriani: Earth tour 2022-2023'
   url: https://www.last.fm/event/4668599+Joe+Satriani:+Earth+tour+2022-2023
@@ -958,6 +1030,7 @@
   venue: Moore Theatre
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2019-12-14'
   title: The Pineapple Thief feat. Gavin Harrison
   url: https://www.last.fm/event/4547889+The+Pineapple+Thief+feat.+Gavin+Harrison
@@ -967,6 +1040,7 @@
   venue: Neumos
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2018-05-08'
   title: Steven Wilson
   url: https://www.last.fm/event/4388551+Steven+Wilson
@@ -978,6 +1052,7 @@
   venue: Showbox SoDo
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2017-04-04'
   title: Amorphis
   url: https://www.last.fm/event/4320693+Amorphis+at+El+Coraz%C3%B3n+on+04+April+2017
@@ -991,6 +1066,7 @@
   venue: El Corazón
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2016-03-07'
   title: Nightwish
   url: https://www.last.fm/event/4146483+Nightwish+at+Showbox+SoDo+on+07+March+2016
@@ -1003,6 +1079,7 @@
   city: Seattle
   country: United States
   poster: images/4146483.jpg
+  city_clean: Seattle
 - date: '2016-04-23'
   title: Hatsune Miku
   url: https://www.last.fm/event/4240667+Hatsune+Miku+at+WaMu+Theater+on+23+April+2016
@@ -1012,6 +1089,7 @@
   venue: WaMu Theater
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2016-08-12'
   title: Guns N' Roses
   url: https://www.last.fm/event/4234622+Guns+N%27+Roses+at+CenturyLink+Field+on+12+August+2016
@@ -1021,6 +1099,7 @@
   venue: CenturyLink Field
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2016-11-29'
   title: Sonata Arctica
   url: https://www.last.fm/event/4235283+Sonata+Arctica+at+El+Coraz%C3%B3n+on+29+November+2016
@@ -1032,6 +1111,7 @@
   venue: El Corazón
   city: Seattle
   country: United States
+  city_clean: Seattle
 - date: '2015-01-23'
   title: London Grammar
   url: https://www.last.fm/event/3910759+London+Grammar+at+L%27Olympia+on+23+January+2015
@@ -1041,6 +1121,7 @@
   venue: L'Olympia
   city: ''
   country: Canada
+  city_clean: ''
 - date: '2014-02-02'
   title: The Australian Pink Floyd Show
   url: https://www.last.fm/event/3570737+The+Australian+Pink+Floyd+Show+at+Le+D%C3%B4me+on+02+February+2014
@@ -1048,6 +1129,7 @@
   venue: Le Dôme
   city: Marseille
   country: France
+  city_clean: Marseille
 - date: '2014-08-09'
   title: Heavy Montreal 2014
   url: https://www.last.fm/festival/3664555+Heavy+Montreal+2014
@@ -1074,6 +1156,7 @@
   city: Montréal
   country: Canada
   poster: images/3664555.jpg
+  city_clean: Montréal
 - date: '2014-10-05'
   title: Within Temptation
   url: https://www.last.fm/event/3850121+Within+Temptation+at+M%C3%A9tropolis+on+05+October+2014
@@ -1083,6 +1166,7 @@
   venue: Métropolis
   city: ''
   country: Canada
+  city_clean: ''
 - date: '2013-06-26'
   title: The 2nd Law Tour
   url: https://www.last.fm/event/3440047+The+2nd+Law+Tour
@@ -1097,6 +1181,7 @@
   city: Nice
   country: France
   poster: images/3440047.jpg
+  city_clean: Nice
 - date: '2013-11-06'
   title: Halo Of Blood Over Europe 2013
   url: https://www.last.fm/event/3594796+Halo+Of+Blood+Over+Europe+2013
@@ -1111,6 +1196,7 @@
   city: Istres
   country: France
   poster: images/3594796.jpg
+  city_clean: Istres
 - date: '2012-11-30'
   title: Scorpions
   url: https://www.last.fm/event/3261981+Scorpions+at+Le+D%C3%B4me+on+30+November+2012
@@ -1118,6 +1204,7 @@
   venue: Le Dôme
   city: Marseille
   country: France
+  city_clean: Marseille
 - date: '2011-07-08'
   title: Sonisphere Festival France 2011
   url: https://www.last.fm/festival/1681633+Sonisphere+Festival+France+2011
@@ -1144,6 +1231,7 @@
   city: Amnéville
   country: France
   poster: images/1681633.jpg
+  city_clean: Amnéville
 - date: '2010-05-14'
   title: Coffee Tour
   url: https://www.last.fm/event/1234865+Coffee+Tour
@@ -1153,6 +1241,7 @@
   venue: Le Dôme
   city: Marseille
   country: France
+  city_clean: Marseille
 - date: '2010-06-15'
   title: AC/DC
   url: https://www.last.fm/event/1335746+AC%2FDC+at+Parc+des+sports+Charles-Ehrmann+on+15+June+2010
@@ -1165,6 +1254,7 @@
   city: Nice
   country: France
   poster: images/1335746.gif
+  city_clean: Nice
 - date: '2009-01-12'
   title: Edguy
   url: https://www.last.fm/event/714258+Edguy+at+%C3%89lys%C3%A9e+Montmartre+on+12+January+2009
@@ -1176,6 +1266,7 @@
   venue: Élysée Montmartre
   city: Paris
   country: France
+  city_clean: Paris
 - date: '2009-02-04'
   title: ALL TOGETHER AGAIN ON STAGE
   url: https://www.last.fm/event/926507+ALL+TOGETHER+AGAIN+ON+STAGE
@@ -1185,6 +1276,7 @@
   venue: Le Zénith
   city: Paris
   country: France
+  city_clean: Paris
 - date: '2009-03-21'
   title: Priest Feast
   url: https://www.last.fm/event/810163+Priest+Feast
@@ -1199,6 +1291,7 @@
   city: Paris
   country: France
   poster: images/810163.jpg
+  city_clean: Paris
 - date: '2008-01-06'
   title: Helloween
   url: https://www.last.fm/event/282087+Helloween+at+%C3%89lys%C3%A9e+Montmartre+on+06+January+2008
@@ -1211,6 +1304,7 @@
   city: Paris
   country: France
   poster: images/282087.jpg
+  city_clean: Paris
 - date: '2008-02-26'
   title: Megadeth
   url: https://www.last.fm/event/420646+Megadeth+at+%C3%89lys%C3%A9e+Montmartre+on+26+February+2008
@@ -1221,6 +1315,7 @@
   city: Paris
   country: France
   poster: images/420646.gif
+  city_clean: Paris
 - date: '2008-04-06'
   title: Nightwish
   url: https://www.last.fm/event/335698+Nightwish+at+Le+Z%C3%A9nith+on+06+April+2008
@@ -1230,6 +1325,7 @@
   venue: Le Zénith
   city: Paris
   country: France
+  city_clean: Paris
 - date: '2008-05-27'
   title: Taking chances world tour
   url: https://www.last.fm/event/242777+Taking+chances+world+tour
@@ -1240,6 +1336,7 @@
   city: Paris
   country: France
   poster: images/242777.jpg
+  city_clean: Paris
 - date: '2008-07-01'
   title: Iron Maiden
   url: https://www.last.fm/event/420548+Iron+Maiden+at+POPB+%2F+Palais+Omnisports+de+Paris-Bercy+on+01+July+2008
@@ -1252,6 +1349,7 @@
   city: Paris
   country: France
   poster: images/420548.jpg
+  city_clean: Paris
 - date: '2008-12-18'
   title: Video Games Live
   url: https://www.last.fm/event/731980+Video+Games+Live
@@ -1261,6 +1359,7 @@
   venue: Palais des Congrès
   city: Paris
   country: France
+  city_clean: Paris
 - date: '2007-04-03'
   title: Marty Friedman
   url: https://www.last.fm/event/95358+Marty+Friedman+at+Le+Trabendo+on+03+April+2007
@@ -1268,6 +1367,7 @@
   venue: Le Trabendo
   city: Paris
   country: France
+  city_clean: Paris
 - date: '2005-06-25'
   title: Iron Maiden
   url: https://www.last.fm/event/101953+Iron+Maiden+at+Parc+des+Princes+on+25+June+2005
@@ -1279,6 +1379,7 @@
   venue: Parc des Princes
   city: Paris
   country: France
+  city_clean: Paris
 - date: '2004-06-15'
   title: Phil Collins
   url: https://www.last.fm/event/661647+Phil+Collins+at+POPB+%2F+Palais+Omnisports+de+Paris-Bercy+on+15+June+2004
@@ -1286,6 +1387,7 @@
   venue: POPB / Palais Omnisports de Paris-Bercy
   city: Paris
   country: France
+  city_clean: Paris
 - date: '2002-10-11'
   title: Jean-Jacques Goldman
   url: https://www.last.fm/event/311532+Jean-Jacques+Goldman+at+Le+Z%C3%A9nith+on+11+October+2002
@@ -1293,6 +1395,7 @@
   venue: Le Zénith
   city: Paris
   country: France
+  city_clean: Paris
 - date: '2001-12-05'
   title: Machine Head
   url: https://www.last.fm/event/50966+Machine+Head+at+%C3%89lys%C3%A9e+Montmartre+on+05+December+2001
@@ -1302,6 +1405,7 @@
   venue: Élysée Montmartre
   city: Paris
   country: France
+  city_clean: Paris
 - date: '2000-06-14'
   title: Iron Maiden
   url: https://www.last.fm/event/59851+Iron+Maiden+at+POPB+%2F+Palais+Omnisports+de+Paris-Bercy+on+14+June+2000
@@ -1313,6 +1417,7 @@
   venue: POPB / Palais Omnisports de Paris-Bercy
   city: Paris
   country: France
+  city_clean: Paris
 - date: '2000-09-27'
   title: In Flames
   url: https://www.last.fm/event/59868+In+Flames+at+La+Machine+du+Moulin+Rouge+on+27+September+2000
@@ -1326,6 +1431,7 @@
   venue: La Machine du Moulin Rouge
   city: Paris
   country: France
+  city_clean: Paris
 - date: '1999-05-07'
   title: Grip Inc.
   url: https://www.last.fm/event/57354+Grip+Inc.+at+l%27Arapaho+on+07+May+1999
@@ -1335,6 +1441,7 @@
   venue: l'Arapaho
   city: Paris
   country: France
+  city_clean: Paris
 - date: '1999-07-07'
   title: Metallica
   url: https://www.last.fm/event/57369+Metallica+at+POPB+%2F+Palais+Omnisports+de+Paris-Bercy+on+07+July+1999
@@ -1346,6 +1453,7 @@
   venue: POPB / Palais Omnisports de Paris-Bercy
   city: Paris
   country: France
+  city_clean: Paris
 - date: '1999-09-09'
   title: Iron Maiden
   url: https://www.last.fm/event/52724+Iron+Maiden+at+POPB+%2F+Palais+Omnisports+de+Paris-Bercy+on+09+September+1999
@@ -1355,6 +1463,7 @@
   venue: POPB / Palais Omnisports de Paris-Bercy
   city: Paris
   country: France
+  city_clean: Paris
 - date: '1999-09-24'
   title: Mylènium tour
   url: https://www.last.fm/event/3889489+Myl%C3%A8nium+tour
@@ -1364,6 +1473,7 @@
   venue: POPB / Palais Omnisports de Paris-Bercy
   city: Paris
   country: France
+  city_clean: Paris
 - date: '1998-05-12'
   title: Iron Maiden
   url: https://www.last.fm/event/52687+Iron+Maiden+at+Le+Z%C3%A9nith+on+12+May+1998
@@ -1375,3 +1485,4 @@
   venue: Le Zénith
   city: Paris
   country: France
+  city_clean: Paris

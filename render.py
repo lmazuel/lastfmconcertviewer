@@ -398,7 +398,7 @@ const yearNavEl = document.getElementById('year-nav');
 const countEl = document.getElementById('visible-count');
 
 // Populate filters
-const cities = [...new Set(EVENTS.map(e => e.city).filter(Boolean))].sort();
+const cities = [...new Set(EVENTS.map(e => e.city_clean || e.city).filter(Boolean))].sort();
 const countries = [...new Set(EVENTS.map(e => e.country).filter(Boolean))].sort();
 const years = [...new Set(EVENTS.map(e => e.date?.slice(0,4)).filter(Boolean))].sort((a,b) => b-a);
 
@@ -440,7 +440,7 @@ function matchSearch(event, query) {
   const q = query.toLowerCase();
   if (event.title?.toLowerCase().includes(q)) return true;
   if (event.venue?.toLowerCase().includes(q)) return true;
-  if (event.city?.toLowerCase().includes(q)) return true;
+  if ((event.city_clean || event.city)?.toLowerCase().includes(q)) return true;
   if (event.lineup?.some(a => a.name.toLowerCase().includes(q))) return true;
   return false;
 }
@@ -455,7 +455,7 @@ function render() {
 
   const filtered = EVENTS.filter(e => {
     if (query && !matchSearch(e, query)) return false;
-    if (cityFilter && e.city !== cityFilter) return false;
+    if (cityFilter && (e.city_clean || e.city) !== cityFilter) return false;
     if (countryFilter && e.country !== countryFilter) return false;
     if (yearFilter && e.date?.slice(0,4) !== yearFilter) return false;
     if (timeFilter === 'upcoming' && e.date < TODAY) return false;
@@ -496,7 +496,7 @@ function render() {
       '<a class="artist-tag" href="' + escapeHtml(a.url) + '" target="_blank" rel="noopener">' + escapeHtml(a.name) + '</a>'
     ).join('');
 
-    const venueText = [ev.venue, ev.city, ev.country].filter(Boolean).join(' · ');
+    const venueText = [ev.venue, ev.city_clean || ev.city, ev.country].filter(Boolean).join(' · ');
 
     card.innerHTML = posterHtml +
       '<div class="card-body">' +
