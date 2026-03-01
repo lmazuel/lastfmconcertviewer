@@ -174,8 +174,22 @@ def extract_event_details(event_url: str) -> dict:
     return details
 
 
-def download_image(url: str, images_dir: Path, event_id: str) -> str | None:
+def find_existing_image(images_dir: Path, event_id: str) -> str | None:
+    """Check if an image already exists for this event_id (any extension)."""
+    for ext in (".jpg", ".png", ".webp", ".gif"):
+        filepath = images_dir / f"{event_id}{ext}"
+        if filepath.exists():
+            return f"images/{event_id}{ext}"
+    return None
+
+
+def download_image(url: str, images_dir: Path, event_id: str, force: bool = False) -> str | None:
     """Download an image and return the relative path. Falls back to thumbnail if full-res 404s."""
+    if not force:
+        existing = find_existing_image(images_dir, event_id)
+        if existing:
+            return existing
+
     for attempt_url in [url, url.replace("/ar0/", "/arXL/")]:
         try:
             resp = session.get(attempt_url, timeout=30)
@@ -202,7 +216,7 @@ def download_image(url: str, images_dir: Path, event_id: str) -> str | None:
     return None
 
 
-def scrape_user_events(username: str, images_dir: Path | None = None) -> list[dict]:
+def scrape_user_events(username: str, images_dir: Path | None = None, force_posters: bool = False) -> list[dict]:
     """Scrape all events (upcoming + all past years) for a user."""
     events_url = f"{BASE_URL}/user/{username}/events"
     print(f"Fetching {events_url} ...", file=sys.stderr)
@@ -223,6 +237,16 @@ def scrape_user_events(username: str, images_dir: Path | None = None) -> list[di
             url = event.get("url")
             if not url:
                 continue
+            event_id = url.rstrip("/").split("/")[-1].split("+")[0]
+
+            # Skip network request if image already cached
+            if not force_posters:
+                existing = find_existing_image(images_dir, event_id)
+                if existing:
+                    print(f"  [{i+1}/{len(all_events)}] Cached: {event.get('title', '?')}", file=sys.stderr)
+                    event["poster"] = existing
+                    continue
+
             print(f"  [{i+1}/{len(all_events)}] Poster for {event.get('title', '?')} ...", file=sys.stderr)
             try:
                 details = extract_event_details(url)
@@ -231,8 +255,7 @@ def scrape_user_events(username: str, images_dir: Path | None = None) -> list[di
                 continue
 
             if "poster_url" in details:
-                event_id = url.rstrip("/").split("/")[-1].split("+")[0]
-                rel_path = download_image(details["poster_url"], images_dir, event_id)
+                rel_path = download_image(details["poster_url"], images_dir, event_id, force=force_posters)
                 if rel_path:
                     event["poster"] = rel_path
 
@@ -253,6 +276,10 @@ def main():
         "--no-posters", action="store_true",
         help="Skip downloading event poster images.",
     )
+    parser.add_argument(
+        "--force-posters", action="store_true",
+        help="Re-download all poster images even if they already exist.",
+    )
     args = parser.parse_args()
 
     username = parse_profile_url(args.profile_url)
@@ -265,7 +292,7 @@ def main():
         images_dir = output_dir / "images"
         images_dir.mkdir(parents=True, exist_ok=True)
 
-    events = scrape_user_events(username, images_dir)
+    events = scrape_user_events(username, images_dir, force_posters=args.force_posters)
 
     if args.output:
         with open(args.output, "w") as f:
