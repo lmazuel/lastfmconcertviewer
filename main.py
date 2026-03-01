@@ -164,8 +164,8 @@ def extract_event_details(event_url: str) -> dict:
         if lineup:
             details["lineup"] = lineup
 
-    # Poster image
-    poster_img = soup.select_one("img.event-poster-preview")
+    # Poster image (full resolution from the expand view)
+    poster_img = soup.select_one("img.event-expanded-image") or soup.select_one("img.event-poster-preview")
     if poster_img:
         src = poster_img.get("src", "")
         if src:
@@ -175,28 +175,31 @@ def extract_event_details(event_url: str) -> dict:
 
 
 def download_image(url: str, images_dir: Path, event_id: str) -> str | None:
-    """Download an image and return the relative path."""
-    try:
-        resp = session.get(url, timeout=30)
-        resp.raise_for_status()
-    except requests.RequestException as e:
-        print(f"  Warning: failed to download poster: {e}", file=sys.stderr)
-        return None
+    """Download an image and return the relative path. Falls back to thumbnail if full-res 404s."""
+    for attempt_url in [url, url.replace("/ar0/", "/arXL/")]:
+        try:
+            resp = session.get(attempt_url, timeout=30)
+            resp.raise_for_status()
+        except requests.RequestException:
+            continue
 
-    # Determine extension from content-type
-    content_type = resp.headers.get("content-type", "")
-    ext = ".jpg"
-    if "png" in content_type:
-        ext = ".png"
-    elif "webp" in content_type:
-        ext = ".webp"
-    elif "gif" in content_type:
-        ext = ".gif"
+        # Determine extension from content-type
+        content_type = resp.headers.get("content-type", "")
+        ext = ".jpg"
+        if "png" in content_type:
+            ext = ".png"
+        elif "webp" in content_type:
+            ext = ".webp"
+        elif "gif" in content_type:
+            ext = ".gif"
 
-    filename = f"{event_id}{ext}"
-    filepath = images_dir / filename
-    filepath.write_bytes(resp.content)
-    return f"images/{filename}"
+        filename = f"{event_id}{ext}"
+        filepath = images_dir / filename
+        filepath.write_bytes(resp.content)
+        return f"images/{filename}"
+
+    print(f"  Warning: failed to download poster: {url}", file=sys.stderr)
+    return None
 
 
 def scrape_user_events(username: str, images_dir: Path | None = None) -> list[dict]:

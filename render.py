@@ -194,6 +194,7 @@ body {
   object-fit: cover;
   background: #111;
   display: block;
+  cursor: pointer;
 }
 .card-poster-placeholder {
   width: 100%;
@@ -292,6 +293,44 @@ body {
   background: linear-gradient(90deg, #333, transparent);
 }
 
+/* ── Lightbox ── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,.88);
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  animation: lbFadeIn .2s ease;
+}
+.lightbox.active { display: flex; }
+@keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 60px rgba(0,0,0,.6);
+  cursor: default;
+}
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: .7;
+  transition: opacity .2s;
+  line-height: 1;
+}
+.lightbox-close:hover { opacity: 1; }
+
 /* ── Responsive ── */
 @media (max-width: 640px) {
   .hero h1 { font-size: 1.8rem; }
@@ -339,6 +378,11 @@ body {
 
 <div class="container">
   <div class="grid" id="grid"></div>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <img src="" alt="">
 </div>
 
 <script>
@@ -443,7 +487,7 @@ function render() {
 
     let posterHtml;
     if (ev.poster) {
-      posterHtml = '<img class="card-poster" src="' + escapeHtml(ev.poster) + '" alt="" loading="lazy">';
+      posterHtml = '<img class="card-poster" src="' + escapeHtml(ev.poster) + '" alt="" loading="lazy" onclick="openLightbox(this.src)">';
     } else {
       posterHtml = '<div class="card-poster-placeholder">🎶</div>';
     }
@@ -474,6 +518,22 @@ countryEl.addEventListener('change', render);
 timeEl.addEventListener('change', render);
 
 render();
+
+// Lightbox
+const lightboxEl = document.getElementById('lightbox');
+const lightboxImg = lightboxEl.querySelector('img');
+
+function openLightbox(src) {
+  lightboxImg.src = src;
+  lightboxEl.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lightboxEl.classList.remove('active');
+  document.body.style.overflow = '';
+}
+lightboxEl.addEventListener('click', e => { if (e.target !== lightboxImg) closeLightbox(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
 </body>
 </html>

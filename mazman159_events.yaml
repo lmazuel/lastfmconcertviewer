@@ -54,7 +54,6 @@
   venue: Neptune Theatre
   city: Seattle, WA
   country: United States
-  poster: images/4997765.jpg
 - date: '2026-04-04'
   title: 'Lacuna Coil: Sleepless Empire Tour'
   url: https://www.last.fm/event/4989876+Lacuna+Coil:+Sleepless+Empire+Tour
@@ -165,6 +164,7 @@
   venue: Paramount Theater
   city: Seattle
   country: United States
+  poster: images/4966178.jpg
 - date: '2026-02-15'
   title: Skeletour World Tour 2026
   url: https://www.last.fm/event/4965312+Skeletour+World+Tour+2026
@@ -528,7 +528,6 @@
   venue: Maverik Center
   city: West Valley City, UT
   country: United States
-  poster: images/4907634.png
 - date: '2025-10-01'
   title: Powerwolf
   url: https://www.last.fm/event/4917262+Powerwolf+at+Roseland+Theater+on+01+October+2025
@@ -550,7 +549,6 @@
   venue: Tacoma Dome
   city: Tacoma, WA
   country: United States
-  poster: images/4909263.jpg
 - date: '2025-10-14'
   title: EVERYONE’S TALKING! TOUR
   url: https://www.last.fm/event/4966686+EVERYONE%E2%80%99S+TALKING!+TOUR
@@ -729,6 +727,7 @@
   venue: Neumos
   city: Seattle, Washington
   country: United States
+  poster: images/4794795.jpg
 - date: '2024-07-26'
   title: Thirty Seconds To Mars - Seasons World Tour
   url: https://www.last.fm/event/4822847+Thirty+Seconds+To+Mars+-+Seasons+World+Tour
@@ -770,6 +769,7 @@
   venue: T-Mobile Park
   city: Seattle
   country: United States
+  poster: images/4764956.jpg
 - date: '2024-08-20'
   title: loserville 2024
   url: https://www.last.fm/event/4784790+loserville+2024
@@ -1102,7 +1102,6 @@
   venue: L'Usine
   city: Istres
   country: France
-  poster: images/3594796.jpg
 - date: '2012-11-30'
   title: Scorpions
   url: https://www.last.fm/event/3261981+Scorpions+at+Le+D%C3%B4me+on+30+November+2012
@@ -1231,6 +1230,7 @@
   venue: POPB / Palais Omnisports de Paris-Bercy
   city: Paris
   country: France
+  poster: images/242777.jpg
 - date: '2008-07-01'
   title: Iron Maiden
   url: https://www.last.fm/event/420548+Iron+Maiden+at+POPB+%2F+Palais+Omnisports+de+Paris-Bercy+on+01+July+2008
@@ -1242,7 +1242,6 @@
   venue: POPB / Palais Omnisports de Paris-Bercy
   city: Paris
   country: France
-  poster: images/420548.jpg
 - date: '2008-12-18'
   title: Video Games Live
   url: https://www.last.fm/event/731980+Video+Games+Live
