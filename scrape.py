@@ -314,14 +314,14 @@ def run_scrape(profile_url: str, output: str | None = None, no_posters: bool = F
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Scrape Last.fm user events")
+    parser = argparse.ArgumentParser(description="Scrape Last.fm user events and download poster images")
     parser.add_argument(
         "profile_url",
         help="Last.fm profile or events URL, e.g. https://www.last.fm/user/mazman159/events",
     )
     parser.add_argument(
         "-o", "--output",
-        help="Output file path. Format is inferred from extension (.yaml/.yml or .json). Defaults to JSON on stdout.",
+        help="Output file path. Format is inferred from extension (.yaml/.yml or .json). Poster images are saved to an images/ folder next to this file. Defaults to JSON on stdout (no images).",
     )
     parser.add_argument(
         "--no-posters", action="store_true",

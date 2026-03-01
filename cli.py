@@ -15,14 +15,14 @@ def main():
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     # --- scrape ---
-    scrape_parser = subparsers.add_parser("scrape", help="Scrape events from a Last.fm profile")
+    scrape_parser = subparsers.add_parser("scrape", help="Scrape events and download poster images from a Last.fm profile")
     scrape_parser.add_argument(
         "profile_url",
         help="Last.fm profile or events URL, e.g. https://www.last.fm/user/mazman159/events",
     )
     scrape_parser.add_argument(
         "-o", "--output",
-        help="Output file path (.yaml/.yml or .json). Defaults to JSON on stdout.",
+        help="Output file path (.yaml/.yml or .json). Poster images are saved to an images/ folder next to this file. Defaults to JSON on stdout (no images).",
     )
     scrape_parser.add_argument(
         "--no-posters", action="store_true",
@@ -50,14 +50,14 @@ def main():
     )
 
     # --- run ---
-    run_parser = subparsers.add_parser("run", help="Scrape events and render HTML in one step")
+    run_parser = subparsers.add_parser("run", help="Scrape events, download posters, and render HTML in one step")
     run_parser.add_argument(
         "profile_url",
         help="Last.fm profile or events URL, e.g. https://www.last.fm/user/mazman159/events",
     )
     run_parser.add_argument(
         "-o", "--output",
-        help="Events output file path (.yaml/.yml). Default: <username>_events.yaml",
+        help="Events output file path (.yaml/.yml). Poster images are saved to an images/ folder next to this file. Default: <username>_events.yaml",
     )
     run_parser.add_argument(
         "--html", default="index.html",

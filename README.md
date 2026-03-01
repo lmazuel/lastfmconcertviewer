@@ -23,10 +23,10 @@ LASTFM_PASSWORD=your_password
 uv run python cli.py run "https://www.last.fm/user/mazman159/events"
 ```
 
-This scrapes events to `mazman159_events.yaml` and generates `index.html` in one step.
+This scrapes events to `mazman159_events.yaml`, downloads poster images to `images/`, and generates `index.html` in one step.
 
 Options:
-- `-o FILE` — Events output file (default: `<username>_events.yaml`)
+- `-o FILE` — Events output file (default: `<username>_events.yaml`). Poster images are saved to an `images/` folder next to this file.
 - `--html FILE` — HTML output file (default: `index.html`)
 - `--title NAME` — Page title (default: inferred from filename)
 - `--no-posters` — Skip downloading poster images
@@ -38,8 +38,10 @@ Options:
 uv run python cli.py scrape "https://www.last.fm/user/mazman159/events" -o mazman159_events.yaml
 ```
 
+Scrapes all events and downloads full-resolution poster images to an `images/` folder next to the output file.
+
 Options:
-- `-o FILE` — Output file (.yaml/.yml or .json)
+- `-o FILE` — Output file (.yaml/.yml or .json). Without `-o`, outputs JSON to stdout (no images).
 - `--no-posters` — Skip downloading poster images
 - `--force-posters` — Re-download all poster images even if cached
 
