@@ -333,10 +333,19 @@ body {
 
 /* ── Responsive ── */
 @media (max-width: 640px) {
+  .hero { padding: 2rem 1rem 1.5rem; }
   .hero h1 { font-size: 1.8rem; }
   .grid { grid-template-columns: 1fr; }
-  .filters-inner { flex-direction: column; align-items: stretch; }
-  .stats { margin-left: 0; text-align: center; }
+  .filters { padding: .75rem 1rem; }
+  .filters-inner { flex-direction: row; flex-wrap: wrap; align-items: center; gap: .5rem; }
+  .search-box { flex: 1 1 100%; }
+  .search-box input { padding: .5rem .75rem .5rem 2.2rem; font-size: .85rem; }
+  .filter-group { flex: 1 1 auto; }
+  .filter-group label { font-size: .7rem; }
+  .filter-group select { font-size: .8rem; padding: .4rem .5rem; max-width: none; width: 100%; }
+  .stats { margin-left: 0; text-align: center; font-size: .85rem; flex-basis: 100%; }
+  .year-nav { gap: .3rem; }
+  .year-pill { padding: .25rem .5rem; font-size: .75rem; }
 }
 </style>
 </head>
