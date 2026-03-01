@@ -20,12 +20,13 @@ LASTFM_PASSWORD=your_password
 ### 1. Scrape events
 
 ```bash
-uv run python main.py "https://www.last.fm/user/mazman159/events" -o mazman159_events.yaml
+uv run python scrape.py "https://www.last.fm/user/mazman159/events" -o mazman159_events.yaml
 ```
 
 Options:
 - `-o FILE` — Output file (.yaml/.yml or .json)
 - `--no-posters` — Skip downloading poster images
+- `--force-posters` — Re-download all poster images even if cached
 
 ### 2. Render HTML page
 
