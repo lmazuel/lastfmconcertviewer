@@ -547,42 +547,23 @@ def load_events(path: str) -> list[dict]:
         return json.load(f)
 
 
-def main():
-    parser = argparse.ArgumentParser(description="Render Last.fm events as a static HTML page")
-    parser.add_argument(
-        "input",
-        help="Path to events YAML or JSON file (from main.py scraper)",
-    )
-    parser.add_argument(
-        "-o", "--output",
-        default="index.html",
-        help="Output HTML file (default: index.html)",
-    )
-    parser.add_argument(
-        "--title",
-        help="Page title / username (default: inferred from input filename)",
-    )
-    args = parser.parse_args()
-
-    events = load_events(args.input)
+def run_render(input_path: str, output: str = "index.html", title: str | None = None):
+    """Render events to HTML. Returns the output path."""
+    events = load_events(input_path)
     if not events:
         print("No events found in input file.", file=sys.stderr)
         sys.exit(1)
 
-    # Sort events by date descending (newest first)
     events.sort(key=lambda e: e.get("date", ""), reverse=True)
 
-    # Extract metadata
     dates = [e["date"] for e in events if e.get("date")]
     years = sorted({d[:4] for d in dates})
     min_year = years[0] if years else "?"
     max_year = years[-1] if years else "?"
 
-    # Infer username from filename or --title
-    username = args.title
+    username = title
     if not username:
-        stem = Path(args.input).stem
-        # "mazman159_events" -> "mazman159"
+        stem = Path(input_path).stem
         username = stem.replace("_events", "").replace("-events", "")
 
     html = HTML_TEMPLATE.render(
@@ -594,9 +575,29 @@ def main():
         events_json=json.dumps(events, ensure_ascii=False),
     )
 
-    output_path = Path(args.output)
+    output_path = Path(output)
     output_path.write_text(html)
     print(f"Generated {output_path} ({len(events)} events)", file=sys.stderr)
+    return str(output_path)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Render Last.fm events as a static HTML page")
+    parser.add_argument(
+        "input",
+        help="Path to events YAML or JSON file (from scraper)",
+    )
+    parser.add_argument(
+        "-o", "--output",
+        default="index.html",
+        help="Output HTML file (default: index.html)",
+    )
+    parser.add_argument(
+        "--title",
+        help="Page title / username (default: inferred from input filename)",
+    )
+    args = parser.parse_args()
+    run_render(args.input, args.output, args.title)
 
 
 if __name__ == "__main__":

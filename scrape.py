@@ -287,6 +287,32 @@ def scrape_user_events(username: str, images_dir: Path | None = None, force_post
     return all_events
 
 
+def run_scrape(profile_url: str, output: str | None = None, no_posters: bool = False, force_posters: bool = False):
+    """Run the scraper with the given options. Returns the list of events."""
+    username = parse_profile_url(profile_url)
+    login()
+
+    images_dir = None
+    if output and not no_posters:
+        output_dir = Path(output).parent
+        images_dir = output_dir / "images"
+        images_dir.mkdir(parents=True, exist_ok=True)
+
+    events = scrape_user_events(username, images_dir, force_posters=force_posters)
+
+    if output:
+        with open(output, "w") as f:
+            if output.endswith((".yaml", ".yml")):
+                yaml.dump(events, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
+            else:
+                json.dump(events, f, indent=2)
+        print(f"Wrote {len(events)} events to {output}", file=sys.stderr)
+    else:
+        print(json.dumps(events, indent=2))
+
+    return events
+
+
 def main():
     parser = argparse.ArgumentParser(description="Scrape Last.fm user events")
     parser.add_argument(
@@ -306,28 +332,7 @@ def main():
         help="Re-download all poster images even if they already exist.",
     )
     args = parser.parse_args()
-
-    username = parse_profile_url(args.profile_url)
-    login()
-
-    # Create images dir relative to output file if specified
-    images_dir = None
-    if args.output and not args.no_posters:
-        output_dir = Path(args.output).parent
-        images_dir = output_dir / "images"
-        images_dir.mkdir(parents=True, exist_ok=True)
-
-    events = scrape_user_events(username, images_dir, force_posters=args.force_posters)
-
-    if args.output:
-        with open(args.output, "w") as f:
-            if args.output.endswith((".yaml", ".yml")):
-                yaml.dump(events, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
-            else:
-                json.dump(events, f, indent=2)
-        print(f"Wrote {len(events)} events to {args.output}", file=sys.stderr)
-    else:
-        print(json.dumps(events, indent=2))
+    run_scrape(args.profile_url, args.output, args.no_posters, args.force_posters)
 
 
 if __name__ == "__main__":

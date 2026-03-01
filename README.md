@@ -17,10 +17,25 @@ LASTFM_PASSWORD=your_password
 
 ## Usage
 
-### 1. Scrape events
+### All-in-one (scrape + render)
 
 ```bash
-uv run python scrape.py "https://www.last.fm/user/mazman159/events" -o mazman159_events.yaml
+uv run python cli.py run "https://www.last.fm/user/mazman159/events"
+```
+
+This scrapes events to `mazman159_events.yaml` and generates `index.html` in one step.
+
+Options:
+- `-o FILE` — Events output file (default: `<username>_events.yaml`)
+- `--html FILE` — HTML output file (default: `index.html`)
+- `--title NAME` — Page title (default: inferred from filename)
+- `--no-posters` — Skip downloading poster images
+- `--force-posters` — Re-download all poster images even if cached
+
+### Scrape only
+
+```bash
+uv run python cli.py scrape "https://www.last.fm/user/mazman159/events" -o mazman159_events.yaml
 ```
 
 Options:
@@ -28,10 +43,10 @@ Options:
 - `--no-posters` — Skip downloading poster images
 - `--force-posters` — Re-download all poster images even if cached
 
-### 2. Render HTML page
+### Render only
 
 ```bash
-uv run python render.py mazman159_events.yaml -o index.html
+uv run python cli.py render mazman159_events.yaml -o index.html
 ```
 
 Options:
@@ -39,6 +54,8 @@ Options:
 - `--title NAME` — Page title (default: inferred from filename)
 
 Then open `index.html` in your browser. The `images/` folder must be alongside it for posters to display.
+
+The standalone scripts `scrape.py` and `render.py` can still be used directly.
 
 ## Resume Copilot session
 
