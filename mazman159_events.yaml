@@ -41,6 +41,7 @@
   venue: WAMU Theater
   city: Seattle, WA
   country: United States
+  poster: images/4987248.jpg
 - date: '2026-04-02'
   title: Scandinavian Heavy Arts Tour
   url: https://www.last.fm/event/4997765+Scandinavian+Heavy+Arts+Tour
@@ -54,6 +55,7 @@
   venue: Neptune Theatre
   city: Seattle, WA
   country: United States
+  poster: images/4997765.jpg
 - date: '2026-04-04'
   title: 'Lacuna Coil: Sleepless Empire Tour'
   url: https://www.last.fm/event/4989876+Lacuna+Coil:+Sleepless+Empire+Tour
@@ -123,6 +125,7 @@
   venue: Paramount Theatre
   city: Seattle, WA
   country: United States
+  poster: images/4976253.png
 - date: '2026-05-09'
   title: 'The midnight: time machines'
   url: https://www.last.fm/event/4967803+The+midnight:+time+machines
@@ -142,6 +145,7 @@
   venue: The Paramount Theatre
   city: Seattle
   country: United States
+  poster: images/4987859.png
 - date: '2026-09-25'
   title: ‘Run For Your Lives’ World Tour 2026
   url: https://www.last.fm/event/4972429+%E2%80%98Run+For+Your+Lives%E2%80%99+World+Tour+2026
@@ -155,6 +159,7 @@
   venue: Banc of California Stadium
   city: Los Angeles
   country: United States
+  poster: images/4972429.jpg
 - date: '2026-02-04'
   title: Strands of Harmony World tour
   url: https://www.last.fm/event/4966178+Strands+of+Harmony+World+tour
@@ -214,6 +219,7 @@
   venue: El Corazon
   city: Seattle, WA
   country: United States
+  poster: images/4884802.png
 - date: '2025-03-11'
   title: 'Alcest: Les Chants de l’Aurore Tour'
   url: https://www.last.fm/event/4857393+Alcest:+Les+Chants+de+l%E2%80%99Aurore+Tour
@@ -528,6 +534,7 @@
   venue: Maverik Center
   city: West Valley City, UT
   country: United States
+  poster: images/4907634.png
 - date: '2025-10-01'
   title: Powerwolf
   url: https://www.last.fm/event/4917262+Powerwolf+at+Roseland+Theater+on+01+October+2025
@@ -549,6 +556,7 @@
   venue: Tacoma Dome
   city: Tacoma, WA
   country: United States
+  poster: images/4909263.jpg
 - date: '2025-10-14'
   title: EVERYONE’S TALKING! TOUR
   url: https://www.last.fm/event/4966686+EVERYONE%E2%80%99S+TALKING!+TOUR
@@ -1102,6 +1110,7 @@
   venue: L'Usine
   city: Istres
   country: France
+  poster: images/3594796.jpg
 - date: '2012-11-30'
   title: Scorpions
   url: https://www.last.fm/event/3261981+Scorpions+at+Le+D%C3%B4me+on+30+November+2012
@@ -1242,6 +1251,7 @@
   venue: POPB / Palais Omnisports de Paris-Bercy
   city: Paris
   country: France
+  poster: images/420548.jpg
 - date: '2008-12-18'
   title: Video Games Live
   url: https://www.last.fm/event/731980+Video+Games+Live
