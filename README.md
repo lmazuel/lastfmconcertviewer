@@ -8,12 +8,14 @@ Scrape and visualize all events from a Last.fm user profile.
 uv sync
 ```
 
-Create a `.env` file with your Last.fm credentials (needed to avoid rate limits):
+Optionally, create a `.env` file with your Last.fm credentials to avoid rate limiting (406 errors) when downloading poster images:
 
 ```
 LASTFM_USERNAME=your_username
 LASTFM_PASSWORD=your_password
 ```
+
+Without credentials, event listing works fine but fetching event detail pages for posters may hit rate limits.
 
 ## Usage
 

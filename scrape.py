@@ -61,7 +61,8 @@ def login() -> bool:
     username = os.getenv("LASTFM_USERNAME")
     password = os.getenv("LASTFM_PASSWORD")
     if not username or not password:
-        print("No LASTFM_USERNAME/LASTFM_PASSWORD in .env, continuing without login.", file=sys.stderr)
+        print("No LASTFM_USERNAME/LASTFM_PASSWORD set. Continuing without login.", file=sys.stderr)
+        print("Warning: unauthenticated requests may get 406 errors on event detail pages.", file=sys.stderr)
         return False
 
     print(f"Logging in as {username} ...", file=sys.stderr)
