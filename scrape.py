@@ -29,14 +29,15 @@ US_STATES = {
 
 
 def normalize_city(city: str) -> str:
-    """Remove US state abbreviations and zip codes from city names.
+    """Clean city names by removing region/state suffixes and zip codes.
 
-    Examples: 'Seattle, WA' -> 'Seattle', 'Las Vegas, NV 89101' -> 'Las Vegas'
+    Examples: 'Seattle, WA' -> 'Seattle', 'Las Vegas, NV 89101' -> 'Las Vegas',
+              'Seattle, Washington' -> 'Seattle'
     """
-    # Strip trailing zip code (5 or 9 digit)
-    cleaned = re.sub(r"\s+\d{5}(-\d{4})?\s*$", "", city)
-    # Strip trailing US state abbreviation (with optional comma/space before)
-    match = re.match(r"^(.+?)[,\s]+([A-Z]{2})\s*$", cleaned)
+    # Take only the part before the first comma
+    cleaned = city.split(",")[0].strip()
+    # Also strip trailing US state abbreviation (without comma, e.g. 'Kent WA')
+    match = re.match(r"^(.+?)\s+([A-Z]{2})(?:\s+\d{5}(?:-\d{4})?)?\s*$", cleaned)
     if match and match.group(2) in US_STATES:
         cleaned = match.group(1).strip()
     return cleaned
