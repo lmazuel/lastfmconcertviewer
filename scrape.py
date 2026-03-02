@@ -276,12 +276,6 @@ def scrape_user_events(username: str, images_dir: Path | None = None, force_post
 
     # Fetch event detail pages for posters (if images_dir is set)
     if images_dir is not None:
-        no_poster_dir = images_dir / ".no_poster"
-        if force_posters and no_poster_dir.exists():
-            for f in no_poster_dir.iterdir():
-                f.unlink()
-        no_poster_dir.mkdir(exist_ok=True)
-
         for i, event in enumerate(all_events):
             url = event.get("url")
             if not url:
@@ -295,10 +289,6 @@ def scrape_user_events(username: str, images_dir: Path | None = None, force_post
                     print(f"  [{i+1}/{len(all_events)}] Cached: {event.get('title', '?')}", file=sys.stderr)
                     event["poster"] = existing
                     continue
-                # Skip if we already know there's no poster
-                if (no_poster_dir / event_id).exists():
-                    print(f"  [{i+1}/{len(all_events)}] No poster: {event.get('title', '?')}", file=sys.stderr)
-                    continue
 
             print(f"  [{i+1}/{len(all_events)}] Poster for {event.get('title', '?')} ...", file=sys.stderr)
             try:
@@ -311,9 +301,6 @@ def scrape_user_events(username: str, images_dir: Path | None = None, force_post
                 rel_path = download_image(details["poster_url"], images_dir, event_id, force=force_posters)
                 if rel_path:
                     event["poster"] = rel_path
-            else:
-                # Remember that this event has no poster
-                (no_poster_dir / event_id).touch()
 
     return all_events
 
