@@ -34,7 +34,8 @@ jobs:
       - name: Restore image cache
         uses: actions/cache@v4
         with:
-          path: images
+          path: |
+            images
           key: poster-images-${{ github.run_id }}
           restore-keys: poster-images-
 
