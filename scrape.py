@@ -103,11 +103,11 @@ def login() -> bool:
         return False
 
 
-def fetch_page(url: str, retries: int = 3) -> BeautifulSoup:
+def fetch_page(url: str, retries: int = 3, max_wait: int = 30) -> BeautifulSoup:
     for attempt in range(retries):
         if attempt > 0:
-            wait = 30 * (attempt + 1)
-            print(f"  Rate limited, waiting {wait}s before retry...", file=sys.stderr)
+            wait = min(max_wait, 30 * (2 ** (attempt - 1)))
+            print(f"  Waiting {wait}s before retry...", file=sys.stderr)
             time.sleep(wait)
         time.sleep(5)
         try:
@@ -259,11 +259,11 @@ def download_image(url: str, images_dir: Path, event_id: str, force: bool = Fals
     return None
 
 
-def scrape_user_events(username: str, images_dir: Path | None = None, force_posters: bool = False) -> list[dict]:
+def scrape_user_events(username: str, images_dir: Path | None = None, force_posters: bool = False, retries: int = 3, max_wait: int = 30) -> list[dict]:
     """Scrape all events (upcoming + all past years) for a user."""
     events_url = f"{BASE_URL}/user/{username}/events"
     print(f"Fetching {events_url} ...", file=sys.stderr)
-    soup = fetch_page(events_url)
+    soup = fetch_page(events_url, retries=retries, max_wait=max_wait)
 
     all_events = extract_events(soup)
 
@@ -271,7 +271,7 @@ def scrape_user_events(username: str, images_dir: Path | None = None, force_post
     year_urls = extract_year_links(soup, username)
     for year_url in year_urls:
         print(f"Fetching {year_url} ...", file=sys.stderr)
-        year_soup = fetch_page(year_url)
+        year_soup = fetch_page(year_url, retries=retries, max_wait=max_wait)
         all_events.extend(extract_events(year_soup))
 
     # Fetch event detail pages for posters (if images_dir is set)
@@ -305,7 +305,7 @@ def scrape_user_events(username: str, images_dir: Path | None = None, force_post
     return all_events
 
 
-def run_scrape(profile_url: str, output: str | None = None, no_posters: bool = False, force_posters: bool = False):
+def run_scrape(profile_url: str, output: str | None = None, no_posters: bool = False, force_posters: bool = False, retries: int = 3, max_wait: int = 30):
     """Run the scraper with the given options. Returns the list of events."""
     username = parse_profile_url(profile_url)
     login()
@@ -316,7 +316,7 @@ def run_scrape(profile_url: str, output: str | None = None, no_posters: bool = F
         images_dir = output_dir / "images"
         images_dir.mkdir(parents=True, exist_ok=True)
 
-    events = scrape_user_events(username, images_dir, force_posters=force_posters)
+    events = scrape_user_events(username, images_dir, force_posters=force_posters, retries=retries, max_wait=max_wait)
 
     if output:
         with open(output, "w") as f:
@@ -349,8 +349,16 @@ def main():
         "--force-posters", action="store_true",
         help="Re-download all poster images even if they already exist.",
     )
+    parser.add_argument(
+        "--retries", type=int, default=3,
+        help="Number of retries on timeout/rate limit (default: 3).",
+    )
+    parser.add_argument(
+        "--max-wait", type=int, default=30,
+        help="Max wait in seconds between retries (default: 30).",
+    )
     args = parser.parse_args()
-    run_scrape(args.profile_url, args.output, args.no_posters, args.force_posters)
+    run_scrape(args.profile_url, args.output, args.no_posters, args.force_posters, args.retries, args.max_wait)
 
 
 if __name__ == "__main__":
