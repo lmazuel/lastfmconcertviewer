@@ -35,7 +35,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: images
-          key: poster-images
+          key: poster-images-${{ github.run_id }}
+          restore-keys: poster-images-
 
       - name: Scrape and render
         env:
