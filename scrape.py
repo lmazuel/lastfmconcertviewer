@@ -66,9 +66,12 @@ def login() -> bool:
         return False
 
     print(f"Logging in as {username} ...", file=sys.stderr)
-    # Get CSRF token from login page
-    resp = session.get(f"{BASE_URL}/login", timeout=30)
-    resp.raise_for_status()
+    try:
+        resp = session.get(f"{BASE_URL}/login", timeout=30)
+        resp.raise_for_status()
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(f"Error: could not reach login page: {e}")
+
     soup = BeautifulSoup(resp.text, "html.parser")
     csrf_input = soup.select_one("input[name='csrfmiddlewaretoken']")
     if not csrf_input:
@@ -76,18 +79,21 @@ def login() -> bool:
         return False
 
     csrf_token = csrf_input["value"]
-    login_resp = session.post(
-        f"{BASE_URL}/login",
-        data={
-            "csrfmiddlewaretoken": csrf_token,
-            "username_or_email": username,
-            "password": password,
-            "next": "/user/_",
-        },
-        headers={"Referer": f"{BASE_URL}/login"},
-        timeout=30,
-    )
-    login_resp.raise_for_status()
+    try:
+        login_resp = session.post(
+            f"{BASE_URL}/login",
+            data={
+                "csrfmiddlewaretoken": csrf_token,
+                "username_or_email": username,
+                "password": password,
+                "next": "/user/_",
+            },
+            headers={"Referer": f"{BASE_URL}/login"},
+            timeout=30,
+        )
+        login_resp.raise_for_status()
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(f"Error: login request failed: {e}")
 
     if login_resp.url != f"{BASE_URL}/login":
         print("Logged in successfully.", file=sys.stderr)
@@ -104,7 +110,18 @@ def fetch_page(url: str, retries: int = 3) -> BeautifulSoup:
             print(f"  Rate limited, waiting {wait}s before retry...", file=sys.stderr)
             time.sleep(wait)
         time.sleep(5)
-        resp = session.get(url, timeout=30)
+        try:
+            resp = session.get(url, timeout=30)
+        except requests.exceptions.ReadTimeout:
+            print(f"  Timeout fetching {url}" + (", retrying..." if attempt < retries - 1 else ""), file=sys.stderr)
+            if attempt < retries - 1:
+                continue
+            raise SystemExit(f"Error: timed out fetching {url} after {retries} attempts")
+        except requests.exceptions.ConnectionError:
+            print(f"  Connection error for {url}" + (", retrying..." if attempt < retries - 1 else ""), file=sys.stderr)
+            if attempt < retries - 1:
+                continue
+            raise SystemExit(f"Error: could not connect to {url} after {retries} attempts")
         if resp.status_code == 406 and attempt < retries - 1:
             continue
         resp.raise_for_status()
