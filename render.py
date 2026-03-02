@@ -370,14 +370,6 @@ body {
       <label for="country-filter">Country</label>
       <select id="country-filter"><option value="">All Countries</option></select>
     </div>
-    <div class="filter-group">
-      <label for="time-filter">When</label>
-      <select id="time-filter">
-        <option value="">All Time</option>
-        <option value="upcoming">Upcoming</option>
-        <option value="past">Past</option>
-      </select>
-    </div>
     <div class="stats">
       <strong id="visible-count">{{ total_events }}</strong> / {{ total_events }} shows
     </div>
@@ -402,7 +394,6 @@ const TODAY = new Date().toISOString().slice(0, 10);
 const searchEl = document.getElementById('search');
 const cityEl = document.getElementById('city-filter');
 const countryEl = document.getElementById('country-filter');
-const timeEl = document.getElementById('time-filter');
 const gridEl = document.getElementById('grid');
 const yearNavEl = document.getElementById('year-nav');
 const countEl = document.getElementById('visible-count');
@@ -415,13 +406,15 @@ const years = [...new Set(EVENTS.map(e => e.date?.slice(0,4)).filter(Boolean))].
 cities.forEach(c => { const o = document.createElement('option'); o.value = c; o.textContent = c; cityEl.appendChild(o); });
 countries.forEach(c => { const o = document.createElement('option'); o.value = c; o.textContent = c; countryEl.appendChild(o); });
 
-// Year pills
-years.forEach(y => {
+// Year pills — add "Upcoming" first if there are future events
+const hasUpcoming = EVENTS.some(e => e.date >= TODAY);
+
+function createPill(label, value) {
   const pill = document.createElement('a');
   pill.className = 'year-pill';
-  pill.textContent = y;
+  pill.textContent = label;
   pill.href = '#';
-  pill.dataset.year = y;
+  pill.dataset.year = value;
   pill.addEventListener('click', e => {
     e.preventDefault();
     document.querySelectorAll('.year-pill').forEach(p => p.classList.remove('active'));
@@ -432,7 +425,10 @@ years.forEach(y => {
     render();
   });
   yearNavEl.appendChild(pill);
-});
+}
+
+if (hasUpcoming) createPill('Upcoming', 'upcoming');
+years.forEach(y => createPill(y, y));
 
 function formatDate(d) {
   if (!d) return '';
@@ -459,7 +455,6 @@ function render() {
   const query = searchEl.value.trim();
   const cityFilter = cityEl.value;
   const countryFilter = countryEl.value;
-  const timeFilter = timeEl.value;
   const yearPill = document.querySelector('.year-pill.active');
   const yearFilter = yearPill?.dataset.year || '';
 
@@ -467,9 +462,8 @@ function render() {
     if (query && !matchSearch(e, query)) return false;
     if (cityFilter && (e.city_clean || e.city) !== cityFilter) return false;
     if (countryFilter && e.country !== countryFilter) return false;
-    if (yearFilter && e.date?.slice(0,4) !== yearFilter) return false;
-    if (timeFilter === 'upcoming' && e.date < TODAY) return false;
-    if (timeFilter === 'past' && e.date >= TODAY) return false;
+    if (yearFilter === 'upcoming' && e.date < TODAY) return false;
+    else if (yearFilter && yearFilter !== 'upcoming' && e.date?.slice(0,4) !== yearFilter) return false;
     return true;
   });
 
@@ -481,14 +475,15 @@ function render() {
     return;
   }
 
-  let lastYear = null;
+  let lastSection = null;
   filtered.forEach(ev => {
-    const year = ev.date?.slice(0,4) || '?';
-    if (year !== lastYear) {
-      lastYear = year;
+    const isUpcoming = ev.date >= TODAY;
+    const section = isUpcoming ? 'Upcoming' : (ev.date?.slice(0,4) || '?');
+    if (section !== lastSection) {
+      lastSection = section;
       const divider = document.createElement('div');
       divider.className = 'year-divider';
-      divider.innerHTML = '<h2>' + escapeHtml(year) + '</h2>';
+      divider.innerHTML = '<h2>' + escapeHtml(section) + '</h2>';
       gridEl.appendChild(divider);
     }
 
@@ -525,7 +520,6 @@ let timer;
 searchEl.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(render, 200); });
 cityEl.addEventListener('change', render);
 countryEl.addEventListener('change', render);
-timeEl.addEventListener('change', render);
 
 render();
 
