@@ -195,17 +195,31 @@ def extract_event_details(event_url: str) -> dict:
     soup = fetch_page(event_url)
     details = {}
 
-    # Lineup with Last.fm links from header-title-secondary
+    # Lineup: headliner may be a link in h1, support acts in secondary
+    lineup = []
+    seen_urls = set()
+    header_title = soup.select_one(".header-title")
+    if header_title:
+        for a_tag in header_title.select("a[href^='/music/']"):
+            href = a_tag.get("href", "")
+            if href not in seen_urls:
+                seen_urls.add(href)
+                lineup.append({
+                    "name": a_tag.get_text(strip=True),
+                    "url": BASE_URL + href,
+                })
     header_secondary = soup.select_one(".header-title-secondary")
     if header_secondary:
-        lineup = []
         for a_tag in header_secondary.select("a[href^='/music/']"):
-            lineup.append({
-                "name": a_tag.get_text(strip=True),
-                "url": BASE_URL + a_tag.get("href", ""),
-            })
-        if lineup:
-            details["lineup"] = lineup
+            href = a_tag.get("href", "")
+            if href not in seen_urls:
+                seen_urls.add(href)
+                lineup.append({
+                    "name": a_tag.get_text(strip=True),
+                    "url": BASE_URL + href,
+                })
+    if lineup:
+        details["lineup"] = lineup
 
     # Poster image (full resolution from the expand view)
     poster_img = soup.select_one("img.event-expanded-image") or soup.select_one("img.event-poster-preview")
@@ -274,33 +288,39 @@ def scrape_user_events(username: str, images_dir: Path | None = None, force_post
         year_soup = fetch_page(year_url, retries=retries, max_wait=max_wait)
         all_events.extend(extract_events(year_soup))
 
-    # Fetch event detail pages for posters (if images_dir is set)
-    if images_dir is not None:
-        for i, event in enumerate(all_events):
-            url = event.get("url")
-            if not url:
-                continue
-            event_id = url.rstrip("/").split("/")[-1].split("+")[0]
+    # Fetch event detail pages for lineup and posters
+    for i, event in enumerate(all_events):
+        url = event.get("url")
+        if not url:
+            continue
+        event_id = url.rstrip("/").split("/")[-1].split("+")[0]
 
-            # Skip network request if image already cached
-            if not force_posters:
-                existing = find_existing_image(images_dir, event_id)
-                if existing:
-                    print(f"  [{i+1}/{len(all_events)}] Cached: {event.get('title', '?')}", file=sys.stderr)
-                    event["poster"] = existing
-                    continue
+        # Check if image already cached
+        cached_poster = None
+        if images_dir and not force_posters:
+            cached_poster = find_existing_image(images_dir, event_id)
 
-            print(f"  [{i+1}/{len(all_events)}] Poster for {event.get('title', '?')} ...", file=sys.stderr)
-            try:
-                details = extract_event_details(url)
-            except requests.RequestException as e:
-                print(f"    Skipped: {e}", file=sys.stderr)
-                continue
+        print(f"  [{i+1}/{len(all_events)}] {'Cached' if cached_poster else 'Fetching'}: {event.get('title', '?')} ...", file=sys.stderr)
 
-            if "poster_url" in details:
-                rel_path = download_image(details["poster_url"], images_dir, event_id, force=force_posters)
-                if rel_path:
-                    event["poster"] = rel_path
+        try:
+            details = extract_event_details(url)
+        except requests.RequestException as e:
+            print(f"    Skipped: {e}", file=sys.stderr)
+            if cached_poster:
+                event["poster"] = cached_poster
+            continue
+
+        # Always update lineup from detail page (more complete than list view)
+        if "lineup" in details:
+            event["lineup"] = details["lineup"]
+
+        # Handle poster
+        if cached_poster:
+            event["poster"] = cached_poster
+        elif images_dir is not None and "poster_url" in details:
+            rel_path = download_image(details["poster_url"], images_dir, event_id, force=force_posters)
+            if rel_path:
+                event["poster"] = rel_path
 
     return all_events
 
