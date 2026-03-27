@@ -5,6 +5,7 @@ import sys
 
 from scrape import run_scrape
 from render import run_render
+from search_posters import run_search_posters
 
 
 def _add_retry_args(parser):
@@ -90,6 +91,18 @@ def main():
     )
     _add_retry_args(run_parser)
 
+    # --- search-posters ---
+    search_parser = subparsers.add_parser("search-posters", help="Search the web for missing event posters")
+    search_parser.add_argument(
+        "input",
+        help="Path to events YAML or JSON file",
+    )
+    search_parser.add_argument(
+        "-o", "--output-dir",
+        default="posters_review",
+        help="Directory to save found posters for review (default: posters_review)",
+    )
+
     args = parser.parse_args()
 
     if args.command == "scrape":
@@ -107,6 +120,9 @@ def main():
 
         run_scrape(args.profile_url, output, args.no_posters, args.force_posters, args.retries, args.max_wait)
         run_render(output, args.html, args.title)
+
+    elif args.command == "search-posters":
+        run_search_posters(args.input, args.output_dir)
 
 
 if __name__ == "__main__":
