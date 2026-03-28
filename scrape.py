@@ -184,6 +184,15 @@ def extract_events(soup: BeautifulSoup) -> list[dict]:
         if venue_country:
             event["country"] = venue_country.get_text(strip=True)
 
+        # Attendance status
+        attendance_td = row.select_one(".events-list-item-user-attendance")
+        if attendance_td:
+            badge = attendance_td.select_one("span")
+            if badge:
+                classes = badge.get("class", [])
+                if "attendance-badge--maybe" in classes:
+                    event["status"] = "interested"
+
         if event:
             events.append(event)
 

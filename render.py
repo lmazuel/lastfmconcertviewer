@@ -554,6 +554,8 @@ def load_events(path: str) -> list[dict]:
 def run_render(input_path: str, output: str = "index.html", title: str | None = None):
     """Render events to HTML. Returns the output path."""
     events = load_events(input_path)
+    # Exclude "interested" events from the rendered page
+    events = [e for e in events if e.get("status") != "interested"]
     if not events:
         print("No events found in input file.", file=sys.stderr)
         sys.exit(1)
